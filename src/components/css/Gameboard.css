@@ -1,0 +1,24 @@
+.game-root {
+  height: 100%;
+}
+
+.game-grid {
+  height: 100%;
+  margin-top: -2%;
+  overflow: hidden;
+
+  animation-name: zoom-in;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes zoom-in {
+  from {
+    scale: 2;
+    opacity: 0.1;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}

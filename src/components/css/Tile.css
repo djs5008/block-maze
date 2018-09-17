@@ -1,0 +1,24 @@
+.tile-root {
+  background-color: transparent;
+  border: 1px solid #666;
+  width: 8vmin;
+  height: 8vmin;
+  margin: 1px;
+  user-select: none;
+}
+
+.tile-root:hover {
+  opacity: 0.7;
+}
+
+.tile-normal {
+  background-color: #DDD;
+}
+
+.tile-gap {
+  border: 1px solid transparent;
+}
+
+.tile-start {
+  background-color: rgb(75, 175, 255);
+}

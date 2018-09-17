@@ -1,0 +1,12 @@
+.nav-root {
+  flex-grow: 1;
+}
+
+.nav-title {
+  flex-grow: 1;
+  margin-left: 20;
+}
+
+.nav-control {
+  float: right;
+}
