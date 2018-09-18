@@ -22,3 +22,7 @@
 .tile-start {
   background-color: rgb(75, 175, 255);
 }
+
+.tile-moved {
+  background-color: rgb(75, 175, 255);
+}

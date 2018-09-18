@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import './css/Gameboard.css';
 import Tile from './Tile';
 
-class Gameboard extends Component {
+import { makeMove } from '../actions/actions.js';
 
-  GameBoard(props) {
-    this.props = props;
-  }
+class Gameboard extends Component {
 
   loadBoardTiles() {
     let tileWidth = this.props.tileWidth;
     let tileHeight = this.props.tileHeight;
-    let gaps = this.props.gaps||{};
-    let start = this.props.start||{};
     let result = [];
 
     let loadRow = (y) => {
@@ -22,7 +20,9 @@ class Gameboard extends Component {
       for (let x = 0; x < tileWidth; x++) {
         result.push(
           <Grid key={x} item>
-            <Tile row={y} col={x} start={start.x === x && start.y === y} gap={gaps[y] && gaps[y].includes(x)} />
+            <Tile row={y} col={x} 
+              onMouseOver={() => this.props.makeMove({x, y})} 
+            />
           </Grid>
         );          
       }
@@ -46,7 +46,7 @@ class Gameboard extends Component {
       <div className='game-root'>
         <Grid className='game-grid' container direction='column' alignContent='center' alignItems='center' justify='center'>
           <Grid item>
-              { this.loadBoardTiles() }
+            { this.loadBoardTiles() }
           </Grid>
         </Grid>
       </div>
@@ -55,4 +55,14 @@ class Gameboard extends Component {
 
 };
 
-export default Gameboard;
+const mapStateToProps = (state) => {
+  return {
+    moves: state.state.gameState.moves,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ makeMove }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gameboard);
