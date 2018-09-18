@@ -4,6 +4,10 @@ import './css/Tile.css';
 
 class Tile extends Component {
 
+  /**
+   * Get the type of tile this is
+   * Used to render proper color/state information for tile
+   */
   getType() {
     let x = this.props.col;
     let y = this.props.row;
@@ -13,22 +17,28 @@ class Tile extends Component {
 
     if (startX === x && startY === y) {
       result = 'START';
+    } else {
+      this.props.moves.forEach(move => {
+        if (move.x === x && move.y === y) {
+          result = 'MOVE';
+        }
+      });
+      if (this.props.moves.length-1 === 
+        (this.props.boardSize.width * this.props.boardSize.height) - this.props.blanks.length) {
+        result = 'WON';
+      }
+      this.props.blanks.forEach(blank => {
+        if (blank.x === x && blank.y === y) {
+          result = 'BLANK';
+        }
+      });
     }
-    this.props.blanks.forEach(blank => {
-      if (blank.x === x && blank.y === y) {
-        result = 'BLANK';
-      }
-    });
-    this.props.moves.forEach(move => {
-      if (move.x === x && move.y === y) {
-        result = 'MOVE';
-      }
-    });
 
     return result;
   }
 
   render() {
+    // Render proper tile type
     switch (this.getType()) {
       case 'START':
         return (
@@ -41,6 +51,10 @@ class Tile extends Component {
       case 'MOVE':
         return (
           <div className={`tile-root tile-moved`} onMouseOver={this.props.onMouseOver}></div>
+        );
+      case 'WON':
+        return (
+          <div className={`tile-root tile-won`} onMouseOver={this.props.onMouseOver}></div>
         );
       default:
         return (
@@ -55,6 +69,7 @@ const mapStateToProps = state => {
     start: state.state.gameState.start,
     moves: state.state.gameState.moves,
     blanks: state.state.gameState.blanks,
+    boardSize: state.state.gameState.boardSize,
   }
 };
 

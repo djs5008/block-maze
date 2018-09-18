@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar/>
-        <Gameboard tileWidth={5} tileHeight={4} />
+        <Gameboard />
         <Footer/>
       </div>
     );
