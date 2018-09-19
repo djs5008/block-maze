@@ -1,0 +1,47 @@
+.tile-direction-up { position: absolute; }
+.tile-direction-up:after { 
+  position: absolute;
+  content: ""; 
+  background: rgb(66, 134, 244);
+  width: 0.7vmin;
+  left: 4vmin;
+  right: 4vmin;
+  height: 4.6vmin; 
+}
+
+.tile-direction-down { position: absolute; }
+.tile-direction-down:after { 
+  position: absolute;
+  content: ""; 
+  background: rgb(66, 134, 244);
+  width: 0.7vmin;
+  top: 4vmin;
+  bottom: 4vmin;
+  left: 4vmin;
+  right: 4vmin;
+  height: 4.6vmin; 
+}
+
+.tile-direction-left { position: absolute; }
+.tile-direction-left:after { 
+  position: absolute;
+  content: ""; 
+  background: rgb(66, 134, 244);
+  height: 0.7vmin; 
+  top: 4vmin;
+  bottom: 4vmin;
+  width: 4.6vmin;
+}
+
+.tile-direction-right { position: absolute; }
+.tile-direction-right:after { 
+  position: absolute;
+  content: ""; 
+  background: rgb(66, 134, 244);
+  height: 0.7vmin; 
+  top: 4vmin;
+  bottom: 4vmin;
+  left: 4vmin;
+  right: 4vmin;
+  width: 4.6vmin;
+}
