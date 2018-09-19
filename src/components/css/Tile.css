@@ -29,4 +29,20 @@
 
 .tile-won {
   background-color: rgb(75, 255, 75);
+  /** animation-name: pop; **/
+  /** animation-duration: 1s; **/
+}
+
+@keyframes pop {
+  from {
+    width: 8vmin;
+    height: 8vmin;
+    margin: 1px;
+  }
+  to {
+    width: 0vmin;
+    height: 0vmin;
+    transform: rotate(135deg);
+    margin: -0.5vmin;
+  }
 }

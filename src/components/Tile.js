@@ -23,7 +23,7 @@ class Tile extends Component {
           result = 'MOVE';
         }
       });
-      if (this.props.moves.length - 1 === 
+      if (this.props.moves.length === 
         (this.props.boardSize.width * this.props.boardSize.height) - this.props.blanks.length) {
         result = 'WON';
       }

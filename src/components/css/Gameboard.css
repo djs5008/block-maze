@@ -12,6 +12,10 @@
   animation-timing-function: ease-in-out;
 }
 
+.game-paper {
+  padding: 15px;
+}
+
 @keyframes zoom-in {
   from {
     scale: 2;

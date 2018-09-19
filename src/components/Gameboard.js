@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import './css/Gameboard.css';
 import Tile from './Tile';
 
@@ -61,7 +61,12 @@ class Gameboard extends Component {
     } while (lastMove.x !== x || lastMove.y !== y);
     
     this.props.resetMoves(movesRemaining);
-    this.props.makeMove({x,y});
+
+    // Make the move where their mouse is currently
+    // Don't do this on the start position, it will add a duplicate entry
+    if (this.props.start.x !== x || this.props.start.y !== y) {
+      this.props.makeMove({x,y});
+    }
   }
 
   /**
@@ -107,7 +112,9 @@ class Gameboard extends Component {
       <div className='game-root'>
         <Grid className='game-grid' container direction='column' alignContent='center' alignItems='center' justify='center'>
           <Grid item>
-            { this.loadBoardTiles() }
+            <Paper className='game-paper'>
+              { this.loadBoardTiles() }
+            </Paper>
           </Grid>
         </Grid>
       </div>
@@ -120,6 +127,7 @@ const mapStateToProps = (state) => {
   return {
     moves: state.state.gameState.moves,
     boardSize: state.state.gameState.boardSize,
+    start: state.state.gameState.start,
   };
 };
 

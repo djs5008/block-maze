@@ -8,16 +8,11 @@ class Navbar extends Component {
   render() {
     return(
       <div className='nav-root'>      
-        <AppBar color='primary' position='static'>
+        <AppBar className='nav-appbar' color='primary' position='absolute'>
           <Toolbar>
             <Typography className='nav-title' variant='headline' color='inherit'>
               Block Maze
             </Typography>
-            <div className='nav-control'>
-              <Button variant='outlined' color='secondary' size='large'>
-                New Game
-              </Button>
-            </div>
           </Toolbar>
         </AppBar>
       </div>
