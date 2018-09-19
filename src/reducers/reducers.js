@@ -38,6 +38,11 @@ const reducers = (state = defaultState, action) => {
           moves: payload,
         }
       };
+    case 'SETGAMESTATE':
+      return {
+        ...state,
+        gameState: payload,
+      }
     default: return state;
   }
 };
