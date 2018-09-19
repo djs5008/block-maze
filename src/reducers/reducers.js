@@ -1,17 +1,9 @@
 let defaultState = {
   gameState: {
-    boardSize: {
-      width: 5,
-      height: 4,
-    },
-    start: { x: 3, y: 2 },    // Start of the puzzle
-    blanks: [                 // "blank" areas of the puzzle
-      {x:4, y:1}, 
-      {x:2, y:2} 
-    ],
-    moves: [                  // Moves the player has made (including start)
-      { x: 3, y: 2 }
-    ],
+    boardSize: {},            // Default size of the board
+    start: {},                // Start of the puzzle
+    blanks: [],               // "blank" areas of the puzzle
+    moves: [],                // Moves the player has made (including start)
     movesLeft: [],            // Possible moves the player can make currently
   },
 };
